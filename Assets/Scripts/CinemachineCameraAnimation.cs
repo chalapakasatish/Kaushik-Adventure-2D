@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class CinemachineCameraAnimation : MonoBehaviour
 {
-    public GameObject movingPlatform1, movingPlatform2;
+    
 }

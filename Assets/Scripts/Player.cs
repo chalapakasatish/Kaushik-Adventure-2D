@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
     public float input;
     public CinemachineVirtualCamera virtualCamera;
     public Vector3 lastPosition;
-    public CinemachineCameraAnimation cinemachineCameraAnimation;
     GameObject cameraMain;
     private void Start()
     {
@@ -141,26 +140,26 @@ public class Player : MonoBehaviour
 
 
     }
-    public void RightMoveButtonUp()
-    {
-        isMovingRight = false;
-        input = 0;
-    }
-    public void LeftMoveButtonUp()
-    {
-        isMovingLeft = false;
-        input = 0;
-    }
-    public void RightMoveButtonDown()
-    {
-        isMovingRight = true;
-        input = 1;
-    }
-    public void LeftMoveButtonDown()
-    {
-        isMovingLeft = true;
-        input = -1;
-    }
+    //public void RightMoveButtonUp()
+    //{
+    //    isMovingRight = false;
+    //    input = 0;
+    //}
+    //public void LeftMoveButtonUp()
+    //{
+    //    isMovingLeft = false;
+    //    input = 0;
+    //}
+    //public void RightMoveButtonDown()
+    //{
+    //    isMovingRight = true;
+    //    input = 1;
+    //}
+    //public void LeftMoveButtonDown()
+    //{
+    //    isMovingLeft = true;
+    //    input = -1;
+    //}
     public void AttackButtonUp()
     {
         isAttack = false;
@@ -251,18 +250,19 @@ public class Player : MonoBehaviour
             case "Lever1":
                 collision.GetComponent<Animator>().Play("GearForward");
                 collision.GetComponent<BoxCollider2D>().enabled = false;
-                //virtualCamera.m_Follow = null;
                 GameManager.Instance.isCameraMainMoving = true;
-                cameraMain.transform.DOLocalMove(new Vector3(23, 14.29596f, -30.2334f), 5f).OnComplete(() =>
+                TouchButtonsDeactivate();
+                cameraMain.transform.DOLocalMove(new Vector3(23, 14.29596f, -30.2334f), 4f).OnComplete(() =>
                 {
-                    DOTween.Sequence().SetDelay(0.1f).Append(cinemachineCameraAnimation.movingPlatform1.transform.DOLocalMove(new Vector3(33, -2f, 0), 7f)).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(33, -2f, 0), 5f)).OnComplete(() =>
                     {
                         cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
                             CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 4f).OnComplete(() =>
                         {
                             GameManager.Instance.isCameraMainMoving = false;
+                            TouchButtonsActivate();
                         });
-                        DOTween.Sequence().SetDelay(8f).Append(cinemachineCameraAnimation.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 8f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(8f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 8f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
@@ -272,18 +272,19 @@ public class Player : MonoBehaviour
             case "Lever2":
                 collision.GetComponent<Animator>().Play("GearForward");
                 collision.GetComponent<BoxCollider2D>().enabled = false;
-                //virtualCamera.m_Follow = null;
                 GameManager.Instance.isCameraMainMoving = true;
-                cameraMain.transform.DOLocalMove(new Vector3(165.9f, 23.4f, -30.2334f), 6f).OnComplete(() =>
+                TouchButtonsDeactivate();
+                cameraMain.transform.DOLocalMove(new Vector3(165.9f, 23.4f, -30.2334f), 4f).OnComplete(() =>
                 {
-                    DOTween.Sequence().SetDelay(0.1f).Append(cinemachineCameraAnimation.movingPlatform2.transform.DOLocalMove(new Vector3(15, -30f, 0), 7f)).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -30f, 0), 5f)).OnComplete(() =>
                     {
                         cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
                             CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 4f).OnComplete(() =>
                             {
                                 GameManager.Instance.isCameraMainMoving = false;
+                                TouchButtonsActivate();
                             });
-                        DOTween.Sequence().SetDelay(20f).Append(cinemachineCameraAnimation.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 8f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(20f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 8f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
@@ -292,7 +293,7 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-       public void ResetGearPosition(GameObject collision) 
+    public void ResetGearPosition(GameObject collision) 
     {
         collision.GetComponent<Animator>().Play("GearBackward");
         collision.GetComponent<BoxCollider2D>().enabled = true;
@@ -300,9 +301,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        // Play death animation/sound, handle other death-related logic.
-
-        // Respawn the player at the last checkpoint.
         GameManager.Instance.RespawnPlayer(gameObject);
     }
     public void TookDamagePlayer()
@@ -337,5 +335,16 @@ public class Player : MonoBehaviour
     private void OnApplicationFocus(bool focus)
     {
         lastPosition = gameObject.transform.position;
+    }
+    public void TouchButtonsActivate()
+    {
+        GameManager.Instance.rightLeftButtons.SetActive(true);
+        GameManager.Instance.jumpButton.SetActive(true);
+        GameManager.Instance.attackButton.SetActive(true);
+    } public void TouchButtonsDeactivate()
+    {
+        GameManager.Instance.rightLeftButtons.SetActive(false);
+        GameManager.Instance.jumpButton.SetActive(false);
+        GameManager.Instance.attackButton.SetActive(false);
     }
 }

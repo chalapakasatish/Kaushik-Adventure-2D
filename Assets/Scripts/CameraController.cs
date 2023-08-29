@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -33,18 +33,20 @@ public class CameraController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(GameManager.Instance.isCameraMainMoving)
+        if (player != null)
         {
-            player.GetComponent<Player>().speed = 0;
+            if (GameManager.Instance.isCameraMainMoving)
+            {
+                player.GetComponent<Player>().speed = 0;
+            }
+            else
+            {
+                player.GetComponent<Player>().speed = 15;
+                Vector3 targetPosition = target.position + offset;
+                //transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, targetPosition, smoothTime * Time.deltaTime);
+            }
         }
-        else
-        {
-            player.GetComponent<Player>().speed = 15;
-            Vector3 targetPosition = target.position + offset;
-            //transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime * Time.deltaTime);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothTime * Time.deltaTime);
-        }
-        
     }
 
 }

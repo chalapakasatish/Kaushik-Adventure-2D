@@ -12,14 +12,15 @@ public class GameManager : MonoBehaviour
     public float y;
     public float z;
     public bool isCameraMainMoving;
-
+    public GameObject rightLeftButtons, jumpButton, attackButton;
+    public GameObject movingPlatform1, movingPlatform2;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -30,10 +31,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //x = PlayerPrefs.GetFloat("x");
-        //y = PlayerPrefs.GetFloat("y");
-        //z = PlayerPrefs.GetFloat("z");
-        //player.transform.position = new Vector3(x, y, z);
+        x = PlayerPrefs.GetFloat("x");
+        y = PlayerPrefs.GetFloat("y");
+        z = PlayerPrefs.GetFloat("z");
+        player.transform.position = new Vector3(x, y, z);
     }
 
     public void UpdateCheckpoint(Vector2 position)
