@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,13 @@ public class Enemy : MonoBehaviour
 
     public GameObject blood;
     public GameObject deathEffect;
+
+    
+
+    private void Update()
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
