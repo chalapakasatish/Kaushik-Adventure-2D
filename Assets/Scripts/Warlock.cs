@@ -14,9 +14,14 @@ public class Warlock : Enemy
     {
         if (Time.time > nextShotTime)
         {
-            Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
+            //Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
+            Shoot();
             nextShotTime = Time.time + timeBetweenShots;
         }
     }
-
+    private void Shoot()
+    {
+        GameObject bullet = ObjectPoolManager.Instance.GetBullet();
+        bullet.transform.position = shotPoint.transform.position;
+    }
 }

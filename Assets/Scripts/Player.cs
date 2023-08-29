@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
 using DG.Tweening;
 using SimpleInputNamespace;
 public class Player : MonoBehaviour
@@ -55,7 +54,6 @@ public class Player : MonoBehaviour
     public bool isAttack,isJump,isMovingRight,isMovingLeft;
     public Heart hearts;
     public float input;
-    public CinemachineVirtualCamera virtualCamera;
     public Vector3 lastPosition;
     GameObject cameraMain;
     private void Start()
@@ -68,7 +66,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         input = SimpleInput.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
         if (Time.time > nextAttackTime)
@@ -140,26 +137,7 @@ public class Player : MonoBehaviour
 
 
     }
-    //public void RightMoveButtonUp()
-    //{
-    //    isMovingRight = false;
-    //    input = 0;
-    //}
-    //public void LeftMoveButtonUp()
-    //{
-    //    isMovingLeft = false;
-    //    input = 0;
-    //}
-    //public void RightMoveButtonDown()
-    //{
-    //    isMovingRight = true;
-    //    input = 1;
-    //}
-    //public void LeftMoveButtonDown()
-    //{
-    //    isMovingLeft = true;
-    //    input = -1;
-    //}
+
     public void AttackButtonUp()
     {
         isAttack = false;
@@ -262,7 +240,7 @@ public class Player : MonoBehaviour
                             GameManager.Instance.isCameraMainMoving = false;
                             TouchButtonsActivate();
                         });
-                        DOTween.Sequence().SetDelay(8f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 8f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(10f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 8f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
