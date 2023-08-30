@@ -276,7 +276,7 @@ public class Player : MonoBehaviour
                 TouchButtonsDeactivate();
                 cameraMain.transform.DOLocalMove(new Vector3(180f, 40f, -30.2334f), 4f).OnComplete(() =>
                 {
-                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -25f, 0), 5f)).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -20f, 0), 5f)).OnComplete(() =>
                     {
                         cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
                             CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 4f).OnComplete(() =>
