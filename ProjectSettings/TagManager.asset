@@ -9,6 +9,7 @@ TagManager:
   - Heart
   - Coin
   - Lever2
+  - Lever3
   layers:
   - Default
   - TransparentFX

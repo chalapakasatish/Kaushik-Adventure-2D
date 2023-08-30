@@ -3,12 +3,18 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-
+    private void OnEnable()
+    {
+        Invoke("DeactivateBullet", 2f);
+    }
+    public void DeactivateBullet()
+    {
+        ObjectPoolManager.Instance.ReturnBulletToPool(gameObject);
+    }
     private void Update()
     {
         Move();
     }
-
     private void Move()
     {
         transform.Translate(Vector2.right * -speed * Time.deltaTime);

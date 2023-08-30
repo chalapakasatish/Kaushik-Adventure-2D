@@ -230,7 +230,7 @@ public class Player : MonoBehaviour
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 GameManager.Instance.isCameraMainMoving = true;
                 TouchButtonsDeactivate();
-                cameraMain.transform.DOLocalMove(new Vector3(23, 14.29596f, -30.2334f), 4f).OnComplete(() =>
+                cameraMain.transform.DOLocalMove(new Vector3(17.82f, 25f, -30.2334f), 4f).OnComplete(() =>
                 {
                     DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(33, -2f, 0), 5f)).OnComplete(() =>
                     {
@@ -252,9 +252,9 @@ public class Player : MonoBehaviour
                 collision.GetComponent<BoxCollider2D>().enabled = false;
                 GameManager.Instance.isCameraMainMoving = true;
                 TouchButtonsDeactivate();
-                cameraMain.transform.DOLocalMove(new Vector3(165.9f, 23.4f, -30.2334f), 4f).OnComplete(() =>
+                cameraMain.transform.DOLocalMove(new Vector3(147.4f, 26.5f, -30.2334f), 4f).OnComplete(() =>
                 {
-                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -30f, 0), 5f)).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -20f, 0), 5f)).OnComplete(() =>
                     {
                         cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
                             CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 4f).OnComplete(() =>
@@ -263,6 +263,28 @@ public class Player : MonoBehaviour
                                 TouchButtonsActivate();
                             });
                         DOTween.Sequence().SetDelay(20f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 8f)).OnComplete(() =>
+                        {
+                            ResetGearPosition(collision.gameObject);
+                        });
+                    });
+                });
+                break;
+            case "Lever3":
+                collision.GetComponent<Animator>().Play("GearForward");
+                collision.GetComponent<BoxCollider2D>().enabled = false;
+                GameManager.Instance.isCameraMainMoving = true;
+                TouchButtonsDeactivate();
+                cameraMain.transform.DOLocalMove(new Vector3(180f, 40f, -30.2334f), 4f).OnComplete(() =>
+                {
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -25f, 0), 5f)).OnComplete(() =>
+                    {
+                        cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
+                            CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 4f).OnComplete(() =>
+                            {
+                                GameManager.Instance.isCameraMainMoving = false;
+                                TouchButtonsActivate();
+                            });
+                        DOTween.Sequence().SetDelay(10f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 15f, 0), 8f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });

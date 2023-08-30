@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool isCameraMainMoving;
     public GameObject rightLeftButtons, jumpButton, attackButton;
     public GameObject movingPlatform1, movingPlatform2;
+    public bool isCheckPointsEnable;
 
     private void Awake()
     {
@@ -31,10 +32,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        x = PlayerPrefs.GetFloat("x");
-        y = PlayerPrefs.GetFloat("y");
-        z = PlayerPrefs.GetFloat("z");
-        player.transform.position = new Vector3(x, y, z);
+        if(isCheckPointsEnable)
+        {
+            x = PlayerPrefs.GetFloat("x");
+            y = PlayerPrefs.GetFloat("y");
+            z = PlayerPrefs.GetFloat("z");
+            player.transform.position = new Vector3(x, y, z);
+        }
+
     }
 
     public void UpdateCheckpoint(Vector2 position)
