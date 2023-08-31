@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
+
     }
 
     private void FixedUpdate()
