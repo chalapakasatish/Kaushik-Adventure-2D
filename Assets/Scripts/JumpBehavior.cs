@@ -27,7 +27,7 @@ public class JumpBehavior : StateMachineBehaviour {
         else {
             timer -= Time.deltaTime;
         }
-        if (playerPos.transform.position.x >= boss1Pos.transform.position.x - 40f)
+        if (playerPos.transform.position.x <= boss1Pos.transform.position.x + 40f && playerPos.transform.position.y <= boss1Pos.transform.position.y + 40f)
         {
             isPlayerEnter = true;
         }
