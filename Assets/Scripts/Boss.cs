@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour {
 
-    public int health;
-    public int damage;
+    
     private float timeBtwDamage = 1.5f;
 
 
@@ -15,6 +14,11 @@ public class Boss : MonoBehaviour {
     private Animator anim;
     public bool isDead;
     public float minX, maxX;
+    public int damage;
+    public int health;
+
+    public GameObject blood;
+    public GameObject deathEffect;
     Transform playerPos;
     private void Start()
     {
@@ -25,23 +29,22 @@ public class Boss : MonoBehaviour {
     private void Update()
     {
 
-        if (health <= 25) {
+        if (health <= 2)
+        {
             anim.SetTrigger("stageTwo");
         }
 
-        if (health <= 0) {
+        if (health <= 0)
+        {
             anim.SetTrigger("death");
+
         }
 
         // give the player some time to recover before taking more damage !
         if (timeBtwDamage > 0) {
             timeBtwDamage -= Time.deltaTime;
         }
-        float dis = Vector2.Distance(transform.position, playerPos.transform.position);
-        if (transform.localPosition.x - 5f  <= dis)
-        {
-            Debug.Log("Player is Near");
-        }
+        
         transform.position = new Vector2(Mathf.Clamp(transform.localPosition.x,minX, maxX),transform.position.y);
         //healthBar.value = health;
     }
@@ -55,5 +58,34 @@ public class Boss : MonoBehaviour {
                 other.GetComponent<Player>().TakeDamage(1);
             }
         } 
+    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        collision.GetComponent<Player>().TakeDamage(damage);
+    //    }
+    //}
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            StartCoroutine(WaitForLevelChange());
+        }
+        else
+        {
+            Instantiate(blood, transform.position, Quaternion.identity);
+        }
+    }
+    public IEnumerator WaitForLevelChange()
+    {
+        yield return new WaitForSeconds(3);
+        GameManager.Instance.player.transform.position = Vector3.zero;
+        GameManager.Instance.levelManager.levelCount++;
+        PlayerPrefs.SetInt("Levels", GameManager.Instance.levelManager.levelCount);
+        GameManager.Instance.levelManager.GetLevels();
     }
 }

@@ -9,7 +9,8 @@ public class DeathBehavior : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         boss = animator.GetComponent<Boss>();
         boss.isDead = true;
-	}
+        
+    }
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	

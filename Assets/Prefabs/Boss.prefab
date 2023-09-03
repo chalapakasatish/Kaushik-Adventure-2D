@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252924934790925}
   - component: {fileID: 6891252924934790926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 6891252925064654696}
   - component: {fileID: 6891252925064654695}
   - component: {fileID: 6891252925064654694}
-  m_Layer: 0
+  - component: {fileID: 734568403}
+  m_Layer: 9
   m_Name: Boss
-  m_TagString: Boss
+  m_TagString: Boss1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +160,9 @@ MonoBehaviour:
   camAnim: {fileID: 0}
   healthBar: {fileID: 0}
   isDead: 0
+  minX: 270
+  maxX: 320
+  levelManager: {fileID: 0}
 --- !u!58 &6891252925064654695
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +178,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.26, y: 0.59}
   serializedVersion: 2
-  m_Radius: 2.98
+  m_Radius: 3
 --- !u!50 &6891252925064654694
 Rigidbody2D:
   serializedVersion: 4
@@ -195,7 +199,24 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &734568403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891252925064654699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ff683b12c21470492fd8bd819f03f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  health: 5
+  blood: {fileID: 4238105084529119149, guid: dd2d14759676e4aa7b7da6894070346b, type: 3}
+  deathEffect: {fileID: 4222584462778245580, guid: 58bf2c0ade619bb4db01abdd39ce13a6,
+    type: 3}
 --- !u!1 &6891252925234358975
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252925234358973}
   - component: {fileID: 6891252925234358974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252925373958827}
   - component: {fileID: 6891252925373958828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252925649217986}
   - component: {fileID: 6891252925649217987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252925810226451}
   - component: {fileID: 6891252925810226452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252926045307633}
   - component: {fileID: 6891252926045307634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6891252926240809114}
   - component: {fileID: 6891252926240809115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

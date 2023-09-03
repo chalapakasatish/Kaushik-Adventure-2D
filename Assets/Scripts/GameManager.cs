@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject rightLeftButtons, jumpButton, attackButton;
     public GameObject movingPlatform1, movingPlatform2;
     public bool isCheckPointsEnable;
+    public LevelManager levelManager;
+
 
     private void Awake()
     {

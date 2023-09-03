@@ -18,7 +18,7 @@ public class DoTweenPlatforms : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.parent = transform;
-            transform.DOLocalMove(new Vector3(maxX, maxY, 0), 4f);
+            transform.DOLocalMove(new Vector3(maxX, maxY, 0), 6f);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -26,7 +26,7 @@ public class DoTweenPlatforms : MonoBehaviour
         if (collision.collider.tag == "Player")
         {
             collision.transform.parent = null;
-            DOTween.Sequence().SetDelay(0f).Append(transform.DOLocalMove(new Vector3(minX, minY, 0), 4f));
+            DOTween.Sequence().SetDelay(0.5f).Append(transform.DOLocalMove(new Vector3(minX, minY, 0), 4f));
         }
     }
 }

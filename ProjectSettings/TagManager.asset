@@ -10,6 +10,9 @@ TagManager:
   - Coin
   - Lever2
   - Lever3
+  - Boss1
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX
