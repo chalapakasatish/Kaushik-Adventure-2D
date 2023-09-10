@@ -13,6 +13,7 @@ TagManager:
   - Boss1
   - Boss
   - Enemy
+  - Key1
   layers:
   - Default
   - TransparentFX

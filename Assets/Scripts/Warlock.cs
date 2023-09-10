@@ -9,14 +9,21 @@ public class Warlock : Enemy
     public float timeBetweenShots;
     float nextShotTime;
     public Transform shotPoint;
-
+    private Transform target;
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void Update()
     {
-        if (Time.time > nextShotTime)
+        if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
         {
-            //Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
-            Shoot();
-            nextShotTime = Time.time + timeBetweenShots;
+            if (Time.time > nextShotTime)
+            {
+                //Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
+                Shoot();
+                nextShotTime = Time.time + timeBetweenShots;
+            }
         }
     }
     private void Shoot()

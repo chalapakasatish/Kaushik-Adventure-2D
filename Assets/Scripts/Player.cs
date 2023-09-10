@@ -41,11 +41,7 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer weaponRenderer;
 
-    public GameObject blood;
-    public GameObject deathEffect;
-    public GameObject pickupEffect;
-    public GameObject swordSwingEffect;
-    public GameObject dropEffect;
+    public GameObject blood, deathEffect, pickupEffect, swordSwingEffect, coinPickupEffect, dropEffect;
 
     AudioSource source;
 
@@ -221,7 +217,7 @@ public class Player : MonoBehaviour
         {
             case "Coin":
                 CurrencyManager.instance.AddCurrency(1);
-                Instantiate(swordSwingEffect, transform.position, Quaternion.identity);
+                Instantiate(coinPickupEffect, transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 break;
             case "Heart":

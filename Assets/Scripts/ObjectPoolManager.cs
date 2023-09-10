@@ -6,7 +6,7 @@ public class ObjectPoolManager : MonoBehaviour
     public static ObjectPoolManager Instance;
 
     public GameObject bulletPrefab;
-    public int initialPoolSize = 10;
+    public int initialPoolSize = 5;
 
     public Queue<GameObject> bulletPool = new Queue<GameObject>();
 

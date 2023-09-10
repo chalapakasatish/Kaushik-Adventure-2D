@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Patrol : Enemy
@@ -13,9 +15,13 @@ public class Patrol : Enemy
     public float startWaitTime;
 
     Animator anim;
+    private Transform target;
+    private bool move;
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
         transform.position = patrolPoints[0].position;
         transform.rotation = patrolPoints[0].rotation;
         waitTime = startWaitTime;
@@ -24,27 +30,45 @@ public class Patrol : Enemy
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
-        if (transform.position == patrolPoints[currentPointIndex].position)
+        if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
         {
-            anim.SetBool("isRunning", false);
-            transform.rotation = patrolPoints[currentPointIndex].rotation;
-            if (waitTime <= 0)
-            {
-                if (currentPointIndex + 1 < patrolPoints.Length)
-                {
-                    currentPointIndex++;
-                } else {
-                    currentPointIndex = 0;
-                }
-                waitTime = startWaitTime;
-            } else {
-                waitTime -= Time.deltaTime;
-            }
-
-        } else {
-            anim.SetBool("isRunning", true);
+            move = true;
         }
+        if (Vector2.Distance(transform.position, target.transform.position) >= 40f)
+        {
+            move = false;
+        }
+        if (move)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
+            if (transform.position == patrolPoints[currentPointIndex].position)
+            {
+                anim.SetBool("isRunning", false);
+                transform.rotation = patrolPoints[currentPointIndex].rotation;
+                if (waitTime <= 0)
+                {
+                    if (currentPointIndex + 1 < patrolPoints.Length)
+                    {
+                        currentPointIndex++;
+                    }
+                    else
+                    {
+                        currentPointIndex = 0;
+                    }
+                    waitTime = startWaitTime;
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
+                }
+
+            }
+            else
+            {
+                anim.SetBool("isRunning", true);
+            }
+        }
+        
     }
 
 }
