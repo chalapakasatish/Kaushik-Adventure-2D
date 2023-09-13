@@ -36,7 +36,7 @@ namespace Pathfinding {
 		void Update () {
 			if (target != null && ai != null)
 			{
-                if (Vector2.Distance(transform.position, target.transform.position) <= 15f)
+                if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
                 {
                     move = true;
                 }

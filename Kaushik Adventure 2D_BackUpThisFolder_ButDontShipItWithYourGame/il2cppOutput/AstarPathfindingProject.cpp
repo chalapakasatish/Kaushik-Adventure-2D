@@ -12634,7 +12634,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AIDestinationSetter_Update_m3793E8FA1157
 		}
 	}
 	{
-		// if (Vector2.Distance(transform.position, target.transform.position) <= 15f)
+		// if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
 		L_3 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_3);
@@ -12653,7 +12653,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AIDestinationSetter_Update_m3793E8FA1157
 		L_9 = Vector2_op_Implicit_mE8EBEE9291F11BB02F062D6E000F4798968CBD96_inline(L_8, NULL);
 		float L_10;
 		L_10 = Vector2_Distance_mBACBB1609E1894D68F882D86A93519E311810C89_inline(L_5, L_9, NULL);
-		if ((!(((float)L_10) <= ((float)(15.0f)))))
+		if ((!(((float)L_10) <= ((float)(20.0f)))))
 		{
 			goto IL_004e;
 		}

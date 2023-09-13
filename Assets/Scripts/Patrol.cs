@@ -20,7 +20,8 @@ public class Patrol : Enemy
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameManager.Instance.player.transform;
 
         transform.position = patrolPoints[0].position;
         transform.rotation = patrolPoints[0].rotation;
@@ -30,13 +31,14 @@ public class Patrol : Enemy
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
+        if (Vector2.Distance(transform.position, target.transform.position) <= 30f)
         {
             move = true;
         }
-        if (Vector2.Distance(transform.position, target.transform.position) >= 40f)
+        if (Vector2.Distance(transform.position, target.transform.position) >= 50f)
         {
             move = false;
+            anim.SetBool("isRunning", false);
         }
         if (move)
         {

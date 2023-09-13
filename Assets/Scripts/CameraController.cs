@@ -19,17 +19,12 @@ public class CameraController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
 
     }
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameManager.Instance.player.gameObject;
     }
     private void LateUpdate()
     {

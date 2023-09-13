@@ -14,7 +14,9 @@ public class JumpBehavior : StateMachineBehaviour {
     public bool isPlayerEnter;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        //playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerPos = GameManager.Instance.player.transform;
         boss1Pos = GameObject.FindGameObjectWithTag("Boss1").GetComponent<Transform>();
         timer = Random.Range(minTime, maxTime);
 	}

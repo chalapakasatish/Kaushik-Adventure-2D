@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         if(isCheckPointsEnable)
         {
             x = PlayerPrefs.GetFloat("x");

@@ -11,13 +11,6 @@ public class Enemy : MonoBehaviour
     public GameObject blood;
     public GameObject deathEffect;
 
-    
-
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

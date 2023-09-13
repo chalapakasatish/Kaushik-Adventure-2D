@@ -23,13 +23,14 @@ public class Boss : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        //playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        playerPos = GameManager.Instance.player.transform;
     }
 
     private void Update()
     {
 
-        if (health <= 2)
+        if (health <= 3)
         {
             anim.SetTrigger("stageTwo");
         }
