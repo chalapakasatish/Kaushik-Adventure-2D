@@ -376,7 +376,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -436,14 +436,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2657,10 +2657,10 @@ TextureImporter:
       art_12: -6559764877361928471
       art_34: 1542643047654797245
       art_27: 701048376445074660
-      art_86: 9079769444412819127
       art_99: 1799821231755406224
       art_21: -7534026396597957982
       art_37: 905573873090142439
+      art_86: 9079769444412819127
       art_28: -7402285490878756743
       art_38: 2061920932912823227
       art_1: -4249202396041795333

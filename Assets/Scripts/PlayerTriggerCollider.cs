@@ -90,6 +90,10 @@ public class PlayerTriggerCollider : MonoBehaviour
                     });
                 });
                 break;
+            case "Key1":
+                Destroy(collision.gameObject);
+                Destroy(GameManager.Instance.door1);
+                break;
         }
     }
     public void ResetGearPosition(GameObject collision)

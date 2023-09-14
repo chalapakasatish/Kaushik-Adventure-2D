@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float z;
     public bool isCameraMainMoving;
     public GameObject rightLeftButtons, jumpButton, attackButton;
-    public GameObject movingPlatform1, movingPlatform2;
+    public GameObject movingPlatform1, movingPlatform2,door1;
     public bool isCheckPointsEnable;
     public LevelManager levelManager;
 
@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -40,7 +39,6 @@ public class GameManager : MonoBehaviour
             z = PlayerPrefs.GetFloat("z");
             player.transform.position = new Vector3(x, y, z);
         }
-
     }
 
     public void UpdateCheckpoint(Vector2 position)

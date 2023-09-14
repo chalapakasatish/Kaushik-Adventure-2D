@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     public int damage;
     public int health;
-
     public GameObject blood;
     public GameObject deathEffect;
 

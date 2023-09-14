@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Patrol : Enemy
 {
-
+    public float minValue,maxValue;
     public Transform[] patrolPoints;
     public float speed;
     int currentPointIndex;
@@ -31,11 +31,11 @@ public class Patrol : Enemy
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) <= 30f)
+        if (Vector2.Distance(transform.position, target.transform.position) <= minValue)
         {
             move = true;
         }
-        if (Vector2.Distance(transform.position, target.transform.position) >= 50f)
+        if (Vector2.Distance(transform.position, target.transform.position) >= maxValue)
         {
             move = false;
             anim.SetBool("isRunning", false);
