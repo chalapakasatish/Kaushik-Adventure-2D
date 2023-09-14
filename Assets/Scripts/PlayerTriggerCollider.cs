@@ -91,6 +91,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                 });
                 break;
             case "Key1":
+                Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door1.gameObject.transform.position, GameManager.Instance.door1.gameObject.transform.rotation);
                 Destroy(collision.gameObject);
                 Destroy(GameManager.Instance.door1);
                 break;
