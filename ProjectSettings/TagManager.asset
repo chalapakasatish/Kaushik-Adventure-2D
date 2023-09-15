@@ -14,6 +14,7 @@ TagManager:
   - Boss
   - Enemy
   - Key1
+  - Props
   layers:
   - Default
   - TransparentFX

@@ -24,6 +24,9 @@ public class PlayerTriggerCollider : MonoBehaviour
                 Player.Instance.TakeDamage(1);
                 Player.Instance.Die();
                 break;
+            case "Props":
+               GetComponent<Player>().TakeDamage(1);
+                break;
             case "Lever1":
                 collision.GetComponent<Animator>().Play("GearForward");
                 collision.GetComponent<BoxCollider2D>().enabled = false;

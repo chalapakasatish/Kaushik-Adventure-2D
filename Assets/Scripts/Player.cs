@@ -190,6 +190,7 @@ public class Player : MonoBehaviour
                 case "Boss1":
                     col.GetComponent<Boss>().TakeDamage(damage);
                     break;
+                
             }
         }
         isAttack = false;
