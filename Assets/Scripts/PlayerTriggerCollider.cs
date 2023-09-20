@@ -64,7 +64,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                        DOTween.Sequence().SetDelay(20f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 3f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(25f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 3f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
@@ -78,7 +78,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                 Player.Instance.TouchButtonsDeactivate();
                 DOTween.Sequence().SetDelay(1f).Append(Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(180f, 32f, -30.2334f), 2f)).OnComplete(() =>
                 {
-                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -20f, 0), 3f)).OnComplete(() =>
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, -22f, 0), 3f)).OnComplete(() =>
                     {
                         Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
                             CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 3f).OnComplete(() =>

@@ -164,13 +164,17 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage) {
         //FindObjectOfType<CameraShake>().Shake();
+
         health -= damage;
         TookDamagePlayer();
         if (health <= 0)
         {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            SceneManager.LoadScene(0);
-        } else {
+            health = 5;
+            //Instantiate(deathEffect, transform.position, Quaternion.identity);
+            //SceneManager.LoadScene(0);
+        }
+        else
+        {
             Instantiate(blood, transform.position, Quaternion.identity);
         }
     }
