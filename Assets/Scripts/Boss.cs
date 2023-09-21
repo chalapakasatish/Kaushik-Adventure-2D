@@ -30,7 +30,7 @@ public class Boss : MonoBehaviour {
     private void Update()
     {
 
-        if (health <= 3)
+        if (health <= 2)
         {
             anim.SetTrigger("stageTwo");
         }
@@ -38,7 +38,6 @@ public class Boss : MonoBehaviour {
         if (health <= 0)
         {
             anim.SetTrigger("death");
-
         }
 
         // give the player some time to recover before taking more damage !
