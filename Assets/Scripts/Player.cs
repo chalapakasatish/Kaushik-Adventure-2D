@@ -169,9 +169,9 @@ public class Player : MonoBehaviour
         TookDamagePlayer();
         if (health <= 0)
         {
-            health = 5;
-            //Instantiate(deathEffect, transform.position, Quaternion.identity);
-            //SceneManager.LoadScene(0);
+            //health = 5;
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            SceneManager.LoadScene(0);
         }
         else
         {

@@ -117,7 +117,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                             });
                             DOTween.Sequence().SetDelay(30f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 5f)).OnComplete(() =>
                             {
-                                DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-25f, 8f, 0), 5f)).OnComplete(() =>
+                                DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-20f, 8f, 0), 5f)).OnComplete(() =>
                                 {
                                     ResetGearPosition(collision.gameObject);
                                 });
@@ -127,7 +127,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                 });
                 break;
             case "Key2":
-                Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door1.gameObject.transform.position, GameManager.Instance.door1.gameObject.transform.rotation);
+                Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door2.gameObject.transform.position, GameManager.Instance.door2.gameObject.transform.rotation);
                 Destroy(collision.gameObject);
                 Destroy(GameManager.Instance.door2);
                 break;

@@ -12,7 +12,7 @@ public class Warlock : Enemy
     private Transform target;
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameManager.Instance.player.transform;
     }
     private void Update()
     {
