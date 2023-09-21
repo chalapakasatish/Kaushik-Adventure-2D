@@ -17,4 +17,5 @@ public class Grass : MonoBehaviour
             anim.SetTrigger("shake");
         }
     }
+    
 }

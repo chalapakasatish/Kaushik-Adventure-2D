@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float z;
     public bool isCameraMainMoving;
     public GameObject rightLeftButtons, jumpButton, attackButton;
-    public GameObject movingPlatform1, movingPlatform2,door1;
+    public GameObject movingPlatform1, movingPlatform2,door1,movingLongPillar1,door2;
     public bool isCheckPointsEnable;
     public LevelManager levelManager;
 

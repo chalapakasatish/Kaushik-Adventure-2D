@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -25,11 +26,16 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         player = GameManager.Instance.player.gameObject;
+        
     }
     private void LateUpdate()
     {
         if (player != null)
         {
+            if (player.transform.position.y <= -15f)
+            {
+                offset.x = -10f;
+            }
             if (GameManager.Instance.isCameraMainMoving)
             {
                 player.GetComponent<Player>().speed = 0;

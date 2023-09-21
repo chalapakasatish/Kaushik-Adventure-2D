@@ -98,6 +98,39 @@ public class PlayerTriggerCollider : MonoBehaviour
                 Destroy(collision.gameObject);
                 Destroy(GameManager.Instance.door1);
                 break;
+            case "Lever4":
+                collision.GetComponent<Animator>().Play("GearForward");
+                collision.GetComponent<BoxCollider2D>().enabled = false;
+                GameManager.Instance.isCameraMainMoving = true;
+                Player.Instance.TouchButtonsDeactivate();
+                DOTween.Sequence().SetDelay(1f).Append(Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(313.8f, -30.1f, -30.2334f), 2f)).OnComplete(() =>
+                {
+                    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 3f)).OnComplete(() =>
+                    {
+                        DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 16.6f, 0), 3f)).OnComplete(() =>
+                        {
+                            Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
+                            CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 3f).OnComplete(() =>
+                            {
+                                GameManager.Instance.isCameraMainMoving = false;
+                                Player.Instance.TouchButtonsActivate();
+                            });
+                            DOTween.Sequence().SetDelay(30f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 5f)).OnComplete(() =>
+                            {
+                                DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-25f, 8f, 0), 5f)).OnComplete(() =>
+                                {
+                                    ResetGearPosition(collision.gameObject);
+                                });
+                            });
+                        });
+                    });
+                });
+                break;
+            case "Key2":
+                Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door1.gameObject.transform.position, GameManager.Instance.door1.gameObject.transform.rotation);
+                Destroy(collision.gameObject);
+                Destroy(GameManager.Instance.door2);
+                break;
         }
     }
     public void ResetGearPosition(GameObject collision)
