@@ -25,7 +25,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                 Player.Instance.Die();
                 break;
             case "Props":
-               GetComponent<Player>().TakeDamage(1);
+                GetComponent<Player>().TakeDamage(1);
                 break;
             case "Lever1":
                 collision.GetComponent<Animator>().Play("GearForward");
@@ -115,24 +115,29 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                            DOTween.Sequence().SetDelay(30f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 5f)).OnComplete(() =>
-                            {
-                                DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-20f, 8f, 0), 5f)).OnComplete(() =>
-                                {
-                                    ResetGearPosition(collision.gameObject);
-                                });
-                            });
+                            //DOTween.Sequence().SetDelay(30f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 5f)).OnComplete(() =>
+                            //{
+                            //    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-20f, 8f, 0), 5f)).OnComplete(() =>
+                            //    {
+                            //        ResetGearPosition(collision.gameObject);
+                            //    });
+                            //});
                         });
                     });
                 });
                 break;
             case "Key2":
-                Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door2.gameObject.transform.position, GameManager.Instance.door2.gameObject.transform.rotation);
                 Destroy(collision.gameObject);
-                Destroy(GameManager.Instance.door2);
+                Instantiate(GetComponent<Player>().deathEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+                DOTween.Sequence().SetDelay(0.5f).Append(Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(232.5f, -50.6f, -30.2334f), 2f)).OnComplete(() =>
+                {
+                    Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door2.gameObject.transform.position, GameManager.Instance.door2.gameObject.transform.rotation);
+                    Destroy(GameManager.Instance.door2);
+                });
                 break;
         }
     }
+    
     public void ResetGearPosition(GameObject collision)
     {
         collision.GetComponent<Animator>().Play("GearBackward");
