@@ -115,24 +115,28 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                            //DOTween.Sequence().SetDelay(30f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-30, 8f, 0), 5f)).OnComplete(() =>
-                            //{
-                            //    DOTween.Sequence().SetDelay(0.1f).Append(GameManager.Instance.movingLongPillar1.transform.DOLocalMove(new Vector3(-20f, 8f, 0), 5f)).OnComplete(() =>
-                            //    {
-                            //        ResetGearPosition(collision.gameObject);
-                            //    });
-                            //});
                         });
                     });
                 });
                 break;
             case "Key2":
+                GameManager.Instance.isCameraMainMoving = true;
+                Player.Instance.TouchButtonsDeactivate();
                 Destroy(collision.gameObject);
                 Instantiate(GetComponent<Player>().deathEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-                DOTween.Sequence().SetDelay(0.5f).Append(Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(232.5f, -50.6f, -30.2334f), 2f)).OnComplete(() =>
+                DOTween.Sequence().SetDelay(0.3f).Append(Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(232.5f, -50.6f, -30.2334f), 2f)).OnComplete(() =>
                 {
                     Instantiate(GetComponent<Player>().deathEffect, GameManager.Instance.door2.gameObject.transform.position, GameManager.Instance.door2.gameObject.transform.rotation);
                     Destroy(GameManager.Instance.door2);
+                    DOTween.Sequence().SetDelay(2f).OnComplete(() =>
+                    {
+                        Player.Instance.cameraMain.transform.DOLocalMove(new Vector3(CameraController.Instance.Target.position.x,
+                        CameraController.Instance.Target.position.y) + CameraController.Instance.offset, 3f).OnComplete(() =>
+                        {
+                            GameManager.Instance.isCameraMainMoving = false;
+                            Player.Instance.TouchButtonsActivate();
+                        });
+                    });
                 });
                 break;
         }
