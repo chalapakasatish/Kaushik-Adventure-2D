@@ -42,7 +42,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                        DOTween.Sequence().SetDelay(10f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 3f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(8f).Append(GameManager.Instance.movingPlatform1.transform.DOLocalMove(new Vector3(5, -2f, 0), 3f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
@@ -64,7 +64,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                        DOTween.Sequence().SetDelay(25f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 3f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(20f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 0f, 0), 3f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });
@@ -86,7 +86,7 @@ public class PlayerTriggerCollider : MonoBehaviour
                                 GameManager.Instance.isCameraMainMoving = false;
                                 Player.Instance.TouchButtonsActivate();
                             });
-                        DOTween.Sequence().SetDelay(20f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 15f, 0), 5f)).OnComplete(() =>
+                        DOTween.Sequence().SetDelay(15f).Append(GameManager.Instance.movingPlatform2.transform.DOLocalMove(new Vector3(15, 15f, 0), 5f)).OnComplete(() =>
                         {
                             ResetGearPosition(collision.gameObject);
                         });

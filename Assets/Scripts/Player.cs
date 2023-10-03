@@ -223,6 +223,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        Handheld.Vibrate();
+        GameManager.Instance.FadePanel();
         GameManager.Instance.RespawnPlayer(gameObject);
     }
     public void TookDamagePlayer()
