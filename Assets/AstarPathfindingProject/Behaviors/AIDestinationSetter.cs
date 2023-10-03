@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening.Core.Easing;
 
 namespace Pathfinding {
 	/// <summary>
@@ -27,14 +28,14 @@ namespace Pathfinding {
 			// scripts as well. So it makes sense that it is up to date every frame.
 			if (ai != null) ai.onSearchPath += Update;
 		}
-
-		void OnDisable () {
+        void OnDisable () {
 			if (ai != null) ai.onSearchPath -= Update;
 		}
 
-		/// <summary>Updates the AI's destination every frame</summary>
-		void Update () {
-			if (target != null && ai != null)
+        /// <summary>Updates the AI's destination every frame</summary>
+        void Update () {
+			target = GameObject.FindGameObjectWithTag("Player").transform;
+            if (target != null && ai != null)
 			{
                 if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
                 {

@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     public AudioClip jumpSound;
     public FloatingJoystick floatingjoystick;
     public bool isAttack,isJump,isMovingRight,isMovingLeft;
-    public Heart hearts;
+    
     public float input;
     public Vector3 lastPosition;
     public GameObject cameraMain;
@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+        cameraMain = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     private void FixedUpdate()
@@ -169,9 +170,9 @@ public class Player : MonoBehaviour
         TookDamagePlayer();
         if (health <= 0)
         {
-            health = 5;
-            //Instantiate(deathEffect, transform.position, Quaternion.identity);
-            //SceneManager.LoadScene(0);
+            //health = 5;
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            GameOver();
         }
         else
         {
@@ -226,29 +227,29 @@ public class Player : MonoBehaviour
     }
     public void TookDamagePlayer()
     {
-        if (health > hearts.numberOfHearts)
+        if (health > GameManager.Instance.hearts.numberOfHearts)
         {
-            health = hearts.numberOfHearts;
+            health = GameManager.Instance.hearts.numberOfHearts;
         }
 
-        for (int i = 0; i < hearts.hearts.Length; i++)
+        for (int i = 0; i < GameManager.Instance.hearts.hearts.Length; i++)
         {
-            if (i < hearts.numberOfHearts)
+            if (i < GameManager.Instance.hearts.numberOfHearts)
             {
-                hearts.hearts[i].enabled = true;
+                GameManager.Instance.hearts.hearts[i].enabled = true;
             }
             else
             {
-                hearts.hearts[i].enabled = false;
+                GameManager.Instance.hearts.hearts[i].enabled = false;
             }
 
             if (i < health)
             {
-                hearts.hearts[i].sprite = hearts.fullHeart;
+                GameManager.Instance.hearts.hearts[i].sprite = GameManager.Instance.hearts.fullHeart;
             }
             else
             {
-                hearts.hearts[i].sprite = hearts.brokenHeart;
+                GameManager.Instance.hearts.hearts[i].sprite = GameManager.Instance.hearts.brokenHeart;
             }
 
         }
@@ -264,4 +265,14 @@ public class Player : MonoBehaviour
         GameManager.Instance.jumpButton.SetActive(false);
         GameManager.Instance.attackButton.SetActive(false);
     }
+    public void GameOver()
+    {
+        GameManager.Instance.FadePanel();
+        GameManager.Instance.gameOverPanel.SetActive(true);
+        GameManager.Instance.RespawnPlayer(gameObject);
+        health = 5;
+        TookDamagePlayer();
+        //Destroy(GameManager.Instance.player.gameObject);
+    }
+    
 }

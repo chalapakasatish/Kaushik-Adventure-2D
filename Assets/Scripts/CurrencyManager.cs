@@ -13,15 +13,7 @@ public class CurrencyManager : MonoBehaviour
     public int Coins { get => coins; set => coins = value; }
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        instance = this;
     }
     private void Start()
     {

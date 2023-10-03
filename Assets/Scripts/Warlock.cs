@@ -16,13 +16,16 @@ public class Warlock : Enemy
     }
     private void Update()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
+        if (target != null)
         {
-            if (Time.time > nextShotTime)
+            if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
             {
-                //Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
-                Shoot();
-                nextShotTime = Time.time + timeBetweenShots;
+                if (Time.time > nextShotTime)
+                {
+                    //Instantiate(fireBall, shotPoint.position, shotPoint.rotation);
+                    Shoot();
+                    nextShotTime = Time.time + timeBetweenShots;
+                }
             }
         }
     }

@@ -26,36 +26,39 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) <= minValue)
+        if (target != null)
         {
-            move = true;
-        }
-        if (Vector2.Distance(transform.position, target.transform.position) >= maxValue)
-        {
-            move = false;
-        }
-        if (move)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
-            if (transform.position == patrolPoints[currentPointIndex].position)
+            if (Vector2.Distance(transform.position, target.transform.position) <= minValue)
             {
-                if (waitTime <= 0)
+                move = true;
+            }
+            if (Vector2.Distance(transform.position, target.transform.position) >= maxValue)
+            {
+                move = false;
+            }
+            if (move)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
+                if (transform.position == patrolPoints[currentPointIndex].position)
                 {
-                    if (currentPointIndex + 1 < patrolPoints.Length)
+                    if (waitTime <= 0)
                     {
-                        currentPointIndex++;
+                        if (currentPointIndex + 1 < patrolPoints.Length)
+                        {
+                            currentPointIndex++;
+                        }
+                        else
+                        {
+                            currentPointIndex = 0;
+                        }
+                        waitTime = startWaitTime;
                     }
                     else
                     {
-                        currentPointIndex = 0;
+                        waitTime -= Time.deltaTime;
                     }
-                    waitTime = startWaitTime;
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
 
+                }
             }
         }
     }

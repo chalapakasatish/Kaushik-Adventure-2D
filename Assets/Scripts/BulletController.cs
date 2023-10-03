@@ -4,15 +4,15 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     public GameObject explosion;
-    private void OnEnable()
+    private void Start()
     {
         Invoke("DeactivateBullet", 2f);
     }
+
     public void DeactivateBullet()
     {
         Instantiate(explosion,transform.position,transform.rotation);
         ObjectPoolManager.Instance.ReturnBulletToPool(gameObject);
-        
     }
     private void Update()
     {
