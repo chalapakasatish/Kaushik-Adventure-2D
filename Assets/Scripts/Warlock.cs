@@ -10,6 +10,7 @@ public class Warlock : Enemy
     float nextShotTime;
     public Transform shotPoint;
     private Transform target;
+    public float minValue, maxValue;
     private void Start()
     {
         target = GameManager.Instance.player.transform;
@@ -18,7 +19,7 @@ public class Warlock : Enemy
     {
         if (target != null)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
+            if (Vector2.Distance(transform.position, target.transform.position) <= minValue)
             {
                 if (Time.time > nextShotTime)
                 {

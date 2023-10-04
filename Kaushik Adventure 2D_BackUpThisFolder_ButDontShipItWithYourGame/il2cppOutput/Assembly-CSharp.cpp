@@ -2988,6 +2988,10 @@ struct Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F  : public Enemy_t10DB31
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___shotPoint_11;
 	// UnityEngine.Transform Warlock::target
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___target_12;
+	// System.Single Warlock::minValue
+	float ___minValue_13;
+	// System.Single Warlock::maxValue
+	float ___maxValue_14;
 };
 
 // UnityEngine.UI.Button
@@ -13778,11 +13782,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Warlock_Update_m24C0241658233361E04590A8
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
 		if (!L_1)
 		{
-			goto IL_0064;
+			goto IL_0065;
 		}
 	}
 	{
-		// if (Vector2.Distance(transform.position, target.transform.position) <= 20f)
+		// if (Vector2.Distance(transform.position, target.transform.position) <= minValue)
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
 		L_2 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		NullCheck(L_2);
@@ -13801,32 +13805,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Warlock_Update_m24C0241658233361E04590A8
 		L_8 = Vector2_op_Implicit_mE8EBEE9291F11BB02F062D6E000F4798968CBD96_inline(L_7, NULL);
 		float L_9;
 		L_9 = Vector2_Distance_mBACBB1609E1894D68F882D86A93519E311810C89_inline(L_4, L_8, NULL);
-		if ((!(((float)L_9) <= ((float)(20.0f)))))
+		float L_10 = __this->___minValue_13;
+		if ((!(((float)L_9) <= ((float)L_10))))
 		{
-			goto IL_0064;
+			goto IL_0065;
 		}
 	}
 	{
 		// if (Time.time > nextShotTime)
-		float L_10;
-		L_10 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
-		float L_11 = __this->___nextShotTime_10;
-		if ((!(((float)L_10) > ((float)L_11))))
+		float L_11;
+		L_11 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		float L_12 = __this->___nextShotTime_10;
+		if ((!(((float)L_11) > ((float)L_12))))
 		{
-			goto IL_0064;
+			goto IL_0065;
 		}
 	}
 	{
 		// Shoot();
 		Warlock_Shoot_m62A0B4B9FDDE524C20ED35E476B94BB38528B573(__this, NULL);
 		// nextShotTime = Time.time + timeBetweenShots;
-		float L_12;
-		L_12 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
-		float L_13 = __this->___timeBetweenShots_9;
-		__this->___nextShotTime_10 = ((float)il2cpp_codegen_add(L_12, L_13));
+		float L_13;
+		L_13 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		float L_14 = __this->___timeBetweenShots_9;
+		__this->___nextShotTime_10 = ((float)il2cpp_codegen_add(L_13, L_14));
 	}
 
-IL_0064:
+IL_0065:
 	{
 		// }
 		return;

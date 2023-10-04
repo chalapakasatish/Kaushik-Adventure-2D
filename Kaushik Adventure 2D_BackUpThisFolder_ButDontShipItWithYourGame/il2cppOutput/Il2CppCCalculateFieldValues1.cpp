@@ -13500,6 +13500,10 @@ struct Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F  : public Enemy_t10DB31
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___shotPoint_11;
 	// UnityEngine.Transform Warlock::target
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___target_12;
+	// System.Single Warlock::minValue
+	float ___minValue_13;
+	// System.Single Warlock::maxValue
+	float ___maxValue_14;
 };
 
 // SimpleInputNamespace.AxisInputSwipeGesture
@@ -21659,9 +21663,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4249[5] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4250[3] = 
 {
 	static_cast<int32_t>(offsetof(UnlockLevel_t77E71BCBABCE6817F60D69EFC07B929950ACF6B3, ___button_4)),static_cast<int32_t>(offsetof(UnlockLevel_t77E71BCBABCE6817F60D69EFC07B929950ACF6B3, ___chains_5)),static_cast<int32_t>(offsetof(UnlockLevel_t77E71BCBABCE6817F60D69EFC07B929950ACF6B3, ___sceneName_6)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4251[5] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4251[7] = 
 {
-	static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___fireBall_8)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___timeBetweenShots_9)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___nextShotTime_10)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___shotPoint_11)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___target_12)),};
+	static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___fireBall_8)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___timeBetweenShots_9)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___nextShotTime_10)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___shotPoint_11)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___target_12)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___minValue_13)),static_cast<int32_t>(offsetof(Warlock_t530752B33C5DD3C15317B71F6B7E0CBA0D2E7B2F, ___maxValue_14)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4252[4] = 
 {
 	static_cast<int32_t>(offsetof(Weapon_tC6498A6B45093D50A1AB4BBD7C82842D5C624302, ___turnSpeed_4)),static_cast<int32_t>(offsetof(Weapon_tC6498A6B45093D50A1AB4BBD7C82842D5C624302, ___damage_5)),static_cast<int32_t>(offsetof(Weapon_tC6498A6B45093D50A1AB4BBD7C82842D5C624302, ___attackRange_6)),static_cast<int32_t>(offsetof(Weapon_tC6498A6B45093D50A1AB4BBD7C82842D5C624302, ___GFX_7)),};
