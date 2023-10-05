@@ -17,6 +17,7 @@ TagManager:
   - Props
   - Key2
   - Lever4
+  - Level1End
   layers:
   - Default
   - TransparentFX

@@ -139,6 +139,9 @@ public class PlayerTriggerCollider : MonoBehaviour
                     });
                 });
                 break;
+            case "Level1End":
+                GameManager.Instance.StartCoroutine(GameManager.Instance.WaitForLevelChange());
+                break;
         }
     }
     

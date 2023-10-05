@@ -72,4 +72,13 @@ public class GameManager : MonoBehaviour
     {
         FadePanel();
     }
+    public IEnumerator WaitForLevelChange()
+    {
+        FadePanel();
+        yield return new WaitForSeconds(0);
+        GameManager.Instance.player.transform.position = Vector3.zero;
+        GameManager.Instance.levelManager.levelCount++;
+        PlayerPrefs.SetInt("Levels", GameManager.Instance.levelManager.levelCount);
+        GameManager.Instance.levelManager.GetLevels();
+    }
 }
