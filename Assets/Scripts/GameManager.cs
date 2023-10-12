@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,13 +24,14 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager;
     public GameObject fadePanel,gameOverPanel;
     public Heart hearts;
-
+    public int hubValue;
+    public TMP_Text hubValueTextMainMenu, hubValueTextGameOver; 
     private void Awake()
     {
         Instance = this;
-        
         player = Instantiate(playerPrefab,transform.position,transform.rotation).transform;
-
+        hubValue = PlayerPrefs.GetInt("HubValue",5);
+        hubValueTextMainMenu.text = "Lives: " + hubValue;
     }
     private void Start()
     {
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator WaitForLevelChange()
     {
         FadePanel();
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.5f);
         GameManager.Instance.player.transform.position = Vector3.zero;
         GameManager.Instance.levelManager.levelCount++;
         PlayerPrefs.SetInt("Levels", GameManager.Instance.levelManager.levelCount);

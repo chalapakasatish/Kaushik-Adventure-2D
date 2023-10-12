@@ -271,10 +271,20 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.FadePanel();
         GameManager.Instance.gameOverPanel.SetActive(true);
-        GameManager.Instance.RespawnPlayer(gameObject);
+        PlayerPrefs.SetInt("HubValue", GameManager.Instance.hubValue - 1);
+        GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
+        if(PlayerPrefs.GetInt("HubValue") <= 0)
+        {
+            PlayerPrefs.SetInt("HubValue", 5);
+            GameManager.Instance.player.transform.position = Vector3.zero;
+            SceneManager.GetActiveScene();
+
+        }else
+        {
+            GameManager.Instance.RespawnPlayer(gameObject);
+        }
         health = 5;
         TookDamagePlayer();
-        //Destroy(GameManager.Instance.player.gameObject);
     }
     
 }

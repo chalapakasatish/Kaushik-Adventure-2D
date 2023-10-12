@@ -35,6 +35,9 @@ public class CameraController : MonoBehaviour
             if (player.transform.position.y <= -15f)
             {
                 offset.x = -10f;
+            }else
+            {
+                offset.x = 10f;
             }
             if (GameManager.Instance.isCameraMainMoving)
             {

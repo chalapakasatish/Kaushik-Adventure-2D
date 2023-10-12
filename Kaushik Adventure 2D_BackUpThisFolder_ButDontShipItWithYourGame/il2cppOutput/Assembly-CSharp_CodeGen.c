@@ -288,18 +288,18 @@ extern void GameManager_PlayGame_m6BE6CD854379DF3651CEECA5043EC2D8EDC870CF (void
 extern void GameManager_WaitForLevelChange_m8C956FEC0AB9A3ECE32949C592801D2086230B88 (void);
 // 0x0000008A System.Void GameManager::.ctor()
 extern void GameManager__ctor_mF453CED520617BFB65C52405A964E06CF17DB368 (void);
-// 0x0000008B System.Void GameManager/<WaitForLevelChange>d__28::.ctor(System.Int32)
-extern void U3CWaitForLevelChangeU3Ed__28__ctor_m2FBA98F0C7E9098B36FA629B18CEC7F41D76DC12 (void);
-// 0x0000008C System.Void GameManager/<WaitForLevelChange>d__28::System.IDisposable.Dispose()
-extern void U3CWaitForLevelChangeU3Ed__28_System_IDisposable_Dispose_mE636E94CAFEBCE458E19F00EFE3CB3D563ECAF80 (void);
-// 0x0000008D System.Boolean GameManager/<WaitForLevelChange>d__28::MoveNext()
-extern void U3CWaitForLevelChangeU3Ed__28_MoveNext_m1034B2E6A8534FAE8C8A8EB269C00C701717E3AF (void);
-// 0x0000008E System.Object GameManager/<WaitForLevelChange>d__28::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CWaitForLevelChangeU3Ed__28_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m1247B0CFD08045AA3DA21BDCB035A7BDC54777C4 (void);
-// 0x0000008F System.Void GameManager/<WaitForLevelChange>d__28::System.Collections.IEnumerator.Reset()
-extern void U3CWaitForLevelChangeU3Ed__28_System_Collections_IEnumerator_Reset_m15C2DCC4745B91BF8F8BD908F34634FE668C74F0 (void);
-// 0x00000090 System.Object GameManager/<WaitForLevelChange>d__28::System.Collections.IEnumerator.get_Current()
-extern void U3CWaitForLevelChangeU3Ed__28_System_Collections_IEnumerator_get_Current_mA92B4229F21D4CB8A9D611547A1A1B7FA6642CB9 (void);
+// 0x0000008B System.Void GameManager/<WaitForLevelChange>d__31::.ctor(System.Int32)
+extern void U3CWaitForLevelChangeU3Ed__31__ctor_m219E0CD12F3894D6DF0FB4D2EFC3009A9CB34190 (void);
+// 0x0000008C System.Void GameManager/<WaitForLevelChange>d__31::System.IDisposable.Dispose()
+extern void U3CWaitForLevelChangeU3Ed__31_System_IDisposable_Dispose_m7F45506C0AA2A6A0E357EF4DFEE82C7F58C5ED32 (void);
+// 0x0000008D System.Boolean GameManager/<WaitForLevelChange>d__31::MoveNext()
+extern void U3CWaitForLevelChangeU3Ed__31_MoveNext_mB093999D9DAC63FB943A91317BC934590CC0BC4D (void);
+// 0x0000008E System.Object GameManager/<WaitForLevelChange>d__31::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CWaitForLevelChangeU3Ed__31_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mDB2625D8B8537D2D6BEB6E91960AA77116344042 (void);
+// 0x0000008F System.Void GameManager/<WaitForLevelChange>d__31::System.Collections.IEnumerator.Reset()
+extern void U3CWaitForLevelChangeU3Ed__31_System_Collections_IEnumerator_Reset_mD8D7991D1438F064875353A7750C6E2B75BBFFC8 (void);
+// 0x00000090 System.Object GameManager/<WaitForLevelChange>d__31::System.Collections.IEnumerator.get_Current()
+extern void U3CWaitForLevelChangeU3Ed__31_System_Collections_IEnumerator_get_Current_mDE3DD0A0ED714778EE9A5651163245D74C3F8F76 (void);
 // 0x00000091 System.Void Grass::Start()
 extern void Grass_Start_m65CB116C2D281C4BDEC39A02B12F4C8A1CE00EF3 (void);
 // 0x00000092 System.Void Grass::OnTriggerEnter2D(UnityEngine.Collider2D)
@@ -662,12 +662,12 @@ static Il2CppMethodPointer s_methodPointers[255] =
 	GameManager_PlayGame_m6BE6CD854379DF3651CEECA5043EC2D8EDC870CF,
 	GameManager_WaitForLevelChange_m8C956FEC0AB9A3ECE32949C592801D2086230B88,
 	GameManager__ctor_mF453CED520617BFB65C52405A964E06CF17DB368,
-	U3CWaitForLevelChangeU3Ed__28__ctor_m2FBA98F0C7E9098B36FA629B18CEC7F41D76DC12,
-	U3CWaitForLevelChangeU3Ed__28_System_IDisposable_Dispose_mE636E94CAFEBCE458E19F00EFE3CB3D563ECAF80,
-	U3CWaitForLevelChangeU3Ed__28_MoveNext_m1034B2E6A8534FAE8C8A8EB269C00C701717E3AF,
-	U3CWaitForLevelChangeU3Ed__28_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m1247B0CFD08045AA3DA21BDCB035A7BDC54777C4,
-	U3CWaitForLevelChangeU3Ed__28_System_Collections_IEnumerator_Reset_m15C2DCC4745B91BF8F8BD908F34634FE668C74F0,
-	U3CWaitForLevelChangeU3Ed__28_System_Collections_IEnumerator_get_Current_mA92B4229F21D4CB8A9D611547A1A1B7FA6642CB9,
+	U3CWaitForLevelChangeU3Ed__31__ctor_m219E0CD12F3894D6DF0FB4D2EFC3009A9CB34190,
+	U3CWaitForLevelChangeU3Ed__31_System_IDisposable_Dispose_m7F45506C0AA2A6A0E357EF4DFEE82C7F58C5ED32,
+	U3CWaitForLevelChangeU3Ed__31_MoveNext_mB093999D9DAC63FB943A91317BC934590CC0BC4D,
+	U3CWaitForLevelChangeU3Ed__31_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mDB2625D8B8537D2D6BEB6E91960AA77116344042,
+	U3CWaitForLevelChangeU3Ed__31_System_Collections_IEnumerator_Reset_mD8D7991D1438F064875353A7750C6E2B75BBFFC8,
+	U3CWaitForLevelChangeU3Ed__31_System_Collections_IEnumerator_get_Current_mDE3DD0A0ED714778EE9A5651163245D74C3F8F76,
 	Grass_Start_m65CB116C2D281C4BDEC39A02B12F4C8A1CE00EF3,
 	Grass_OnTriggerEnter2D_mEE81D091CD7C230A9977DAB338280D47CBA63EAF,
 	Grass__ctor_m4845898660B50A2077C604883E8B6C5F427F191B,
@@ -1013,7 +1013,7 @@ static const int32_t s_InvokerIndices[255] =
 	4095,
 	4095,
 	4095,
-	6372,
+	6373,
 	4095,
 	4095,
 	4095,
