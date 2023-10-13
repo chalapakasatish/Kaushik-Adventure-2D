@@ -22,10 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject movingPlatform1, movingPlatform2,door1,movingLongPillar1,door2;
     public bool isCheckPointsEnable;
     public LevelManager levelManager;
-    public GameObject fadePanel,gameOverPanel;
+    public GameObject fadePanel,gameOverPanel,pausePanel;
     public Heart hearts;
     public int hubValue;
     public TMP_Text hubValueTextMainMenu, hubValueTextGameOver; 
+
     private void Awake()
     {
         Instance = this;
@@ -43,7 +44,14 @@ public class GameManager : MonoBehaviour
             player.transform.position = new Vector3(x, y, z);
         }
     }
-    
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     public void UpdateCheckpoint(Vector2 position)
     {
         lastCheckpointPosition = position;
@@ -82,5 +90,14 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.levelManager.levelCount++;
         PlayerPrefs.SetInt("Levels", GameManager.Instance.levelManager.levelCount);
         GameManager.Instance.levelManager.GetLevels();
+    }
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
+    public void ResumeButton()
+    {
+        Time.timeScale = 1.0f;
+        pausePanel.SetActive(false);
     }
 }
