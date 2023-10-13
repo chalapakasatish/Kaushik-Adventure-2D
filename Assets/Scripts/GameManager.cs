@@ -85,6 +85,9 @@ public class GameManager : MonoBehaviour
     public IEnumerator WaitForLevelChange()
     {
         FadePanel();
+        PlayerPrefs.SetInt("HubValue", 5);
+        GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
+        GameManager.Instance.hubValue = 5;
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.player.transform.position = Vector3.zero;
         GameManager.Instance.levelManager.levelCount++;

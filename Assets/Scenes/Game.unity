@@ -21855,7 +21855,6 @@ GameObject:
   - component: {fileID: 588778408}
   - component: {fileID: 588778411}
   - component: {fileID: 588778410}
-  - component: {fileID: 588778409}
   m_Layer: 0
   m_Name: Key2
   m_TagString: Key2
@@ -21878,26 +21877,6 @@ Transform:
   m_Father: {fileID: 1567351541}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &588778409
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588778407}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 027ebf780524889459ecc0d5530f24ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!61 &588778410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69741,7 +69720,6 @@ GameObject:
   - component: {fileID: 1832364000}
   - component: {fileID: 1832364002}
   - component: {fileID: 1832364001}
-  - component: {fileID: 1832364003}
   m_Layer: 0
   m_Name: Key1
   m_TagString: Key1
@@ -69842,26 +69820,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1832364003
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832363999}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 027ebf780524889459ecc0d5530f24ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1838094567
 GameObject:
   m_ObjectHideFlags: 0
