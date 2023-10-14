@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject movingPlatform1, movingPlatform2,door1,movingLongPillar1,door2;
     public bool isCheckPointsEnable;
     public LevelManager levelManager;
-    public GameObject fadePanel,gameOverPanel,pausePanel;
+    public GameObject fadePanel,gameOverPanel,pausePanel,winPanel,uiPanel;
     public Heart hearts;
     public int hubValue;
-    public TMP_Text hubValueTextMainMenu, hubValueTextGameOver; 
-
+    public TMP_Text hubValueTextMainMenu, hubValueTextGameOver;
+    public GameObject finalDoor,finalPlatform;
     private void Awake()
     {
         Instance = this;

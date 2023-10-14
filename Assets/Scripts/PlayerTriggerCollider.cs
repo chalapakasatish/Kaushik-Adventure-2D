@@ -142,6 +142,11 @@ public class PlayerTriggerCollider : MonoBehaviour
             case "Level1End":
                 GameManager.Instance.StartCoroutine(GameManager.Instance.WaitForLevelChange());
                 break;
+            case "Friend":
+                GameManager.Instance.uiPanel.SetActive(false);
+                GameManager.Instance.winPanel.SetActive(true);
+                Instantiate(GetComponent<Player>().pickupEffect, transform.position, transform.rotation);
+                    break;
         }
     }
     

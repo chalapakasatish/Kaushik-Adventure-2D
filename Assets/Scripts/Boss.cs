@@ -73,7 +73,10 @@ public class Boss : MonoBehaviour {
         if (health <= 0)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            StartCoroutine(WaitForLevelChange());
+            GameManager.Instance.finalDoor.SetActive(false);
+            GameManager.Instance.finalPlatform.SetActive(true);
+            Instantiate(deathEffect, GameManager.Instance.finalDoor.transform.position, GameManager.Instance.finalDoor.transform.rotation);
+            //StartCoroutine(WaitForLevelChange());
         }
         else
         {

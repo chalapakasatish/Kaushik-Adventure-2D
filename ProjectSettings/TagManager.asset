@@ -18,6 +18,7 @@ TagManager:
   - Key2
   - Lever4
   - Level1End
+  - Friend
   layers:
   - Default
   - TransparentFX
