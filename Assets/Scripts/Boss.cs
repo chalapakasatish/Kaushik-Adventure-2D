@@ -73,15 +73,21 @@ public class Boss : MonoBehaviour {
         if (health <= 0)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            GameManager.Instance.finalDoor.SetActive(false);
             GameManager.Instance.finalPlatform.SetActive(true);
-            Instantiate(deathEffect, GameManager.Instance.finalDoor.transform.position, GameManager.Instance.finalDoor.transform.rotation);
+            StartCoroutine(WaitForFinalDoorOpen());
             //StartCoroutine(WaitForLevelChange());
         }
         else
         {
             Instantiate(blood, transform.position, Quaternion.identity);
         }
+    }
+    public IEnumerator WaitForFinalDoorOpen()
+    {
+        yield return new WaitForSeconds(3f);
+        Instantiate(deathEffect, GameManager.Instance.finalDoor.transform.position, GameManager.Instance.finalDoor.transform.rotation);
+        GameManager.Instance.finalDoor.SetActive(false);
+
     }
     public IEnumerator WaitForLevelChange()
     {
