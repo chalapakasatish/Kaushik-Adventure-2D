@@ -276,9 +276,9 @@ public class Player : MonoBehaviour
         GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
         if(PlayerPrefs.GetInt("HubValue") <= 0)
         {
-            PlayerPrefs.SetInt("HubValue", 5);
+            PlayerPrefs.SetInt("HubValue", 3);
             GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
-            GameManager.Instance.hubValue = 5;
+            GameManager.Instance.hubValue = 3;
             GameManager.Instance.UpdateCheckpoint(Vector2.zero);
             GameManager.Instance.RespawnPlayer(gameObject);
         }else

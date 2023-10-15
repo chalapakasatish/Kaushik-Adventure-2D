@@ -9131,9 +9131,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Awake_m4B6E8E2AF58C95C9A2A0C
 		L_6 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_5, NULL);
 		__this->___player_7 = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___player_7), (void*)L_6);
-		// hubValue = PlayerPrefs.GetInt("HubValue",5);
+		// hubValue = PlayerPrefs.GetInt("HubValue",3);
 		int32_t L_7;
-		L_7 = PlayerPrefs_GetInt_m8AD1FA8BA54CC6CE2B2AEEE36B6D75587BB1692D(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 5, NULL);
+		L_7 = PlayerPrefs_GetInt_m8AD1FA8BA54CC6CE2B2AEEE36B6D75587BB1692D(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 3, NULL);
 		__this->___hubValue_28 = L_7;
 		// hubValueTextMainMenu.text = "Lives: " + hubValue;
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_8 = __this->___hubValueTextMainMenu_29;
@@ -9459,8 +9459,8 @@ IL_0017:
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_4 = V_1;
 		NullCheck(L_4);
 		GameManager_FadePanel_mECA24EE79AFA90C9E09D796D951DBDB4455129CF(L_4, NULL);
-		// PlayerPrefs.SetInt("HubValue", 5);
-		PlayerPrefs_SetInt_m956D3E2DB966F20CF42F842880DDF9E2BE94D948(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 5, NULL);
+		// PlayerPrefs.SetInt("HubValue", 3);
+		PlayerPrefs_SetInt_m956D3E2DB966F20CF42F842880DDF9E2BE94D948(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 3, NULL);
 		// GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_5 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___Instance_5;
 		NullCheck(L_5);
@@ -12423,8 +12423,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Player_GameOver_m1ABC6363E0C0467CBA635F9
 		}
 	}
 	{
-		// PlayerPrefs.SetInt("HubValue", 5);
-		PlayerPrefs_SetInt_m956D3E2DB966F20CF42F842880DDF9E2BE94D948(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 5, NULL);
+		// PlayerPrefs.SetInt("HubValue", 3);
+		PlayerPrefs_SetInt_m956D3E2DB966F20CF42F842880DDF9E2BE94D948(_stringLiteral0FB79E9EDE9A5346C90C91C449E16495B8B335E8, 3, NULL);
 		// GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_14 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___Instance_5;
 		NullCheck(L_14);
@@ -12438,10 +12438,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Player_GameOver_m1ABC6363E0C0467CBA635F9
 		L_18 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteralD5DB5CE68088BFE98F775E6EFA86049E7C63AC8E, L_17, NULL);
 		NullCheck(L_15);
 		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_15, L_18);
-		// GameManager.Instance.hubValue = 5;
+		// GameManager.Instance.hubValue = 3;
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_19 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___Instance_5;
 		NullCheck(L_19);
-		L_19->___hubValue_28 = 5;
+		L_19->___hubValue_28 = 3;
 		// GameManager.Instance.UpdateCheckpoint(Vector2.zero);
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_20 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___Instance_5;
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_21;

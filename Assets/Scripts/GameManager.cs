@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         player = Instantiate(playerPrefab,transform.position,transform.rotation).transform;
-        hubValue = PlayerPrefs.GetInt("HubValue",5);
+        hubValue = PlayerPrefs.GetInt("HubValue",3);
         hubValueTextMainMenu.text = "Lives: " + hubValue;
     }
     private void Start()
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator WaitForLevelChange()
     {
         FadePanel();
-        PlayerPrefs.SetInt("HubValue", 5);
+        PlayerPrefs.SetInt("HubValue", 3);
         GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
         GameManager.Instance.hubValue = 5;
         yield return new WaitForSeconds(0.5f);
