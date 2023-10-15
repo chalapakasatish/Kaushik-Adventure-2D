@@ -9632,10 +9632,10 @@ IL_0017:
 		L_9 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteralD5DB5CE68088BFE98F775E6EFA86049E7C63AC8E, L_8, NULL);
 		NullCheck(L_6);
 		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_6, L_9);
-		// GameManager.Instance.hubValue = 5;
+		// GameManager.Instance.hubValue = 3;
 		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_10 = ((GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields*)il2cpp_codegen_static_fields_for(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_il2cpp_TypeInfo_var))->___Instance_5;
 		NullCheck(L_10);
-		L_10->___hubValue_28 = 5;
+		L_10->___hubValue_28 = 3;
 		// yield return new WaitForSeconds(0.5f);
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_11 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		NullCheck(L_11);

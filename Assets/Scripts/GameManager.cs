@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         FadePanel();
         PlayerPrefs.SetInt("HubValue", 3);
         GameManager.Instance.hubValueTextGameOver.text = "Lives: " + PlayerPrefs.GetInt("HubValue");
-        GameManager.Instance.hubValue = 5;
+        GameManager.Instance.hubValue = 3;
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.player.transform.position = Vector3.zero;
         GameManager.Instance.levelManager.levelCount++;
